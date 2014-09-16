@@ -1,7 +1,23 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class chemotaxis extends PApplet {
+
  Bacteria [] colony;
  Food [] snacks;
  boolean mouseTrace = false;
- void setup()   
+ public void setup()   
  {     
  	//initialize bacteria variables here   
  	frameRate(30);
@@ -13,7 +29,7 @@
  		colony[i] = new Bacteria();
  	}
  }   
- void draw()   
+ public void draw()   
  {    
  	//move and show the bacteria 
  	background(255);
@@ -34,12 +50,12 @@
  		foodX = 150;
  		foodY = 150;
  	}
- 	void place()
+ 	public void place()
  	{
  		foodX = mouseX;
  		foodY = mouseY;
  	}
- 	void show()
+ 	public void show()
  	{
  		fill(fr,fg,fb);
  		ellipse(foodX, foodY, 20,20);
@@ -56,7 +72,7 @@
  		g = (int)(Math.random()*255);
  		b = (int)(Math.random()*255);
  	}
- 	void move()
+ 	public void move()
  	{
  		if (mouseTrace == true)
  		{
@@ -91,14 +107,14 @@
  			myY = myY + (int)(Math.random()*3)-1;
  		}
  	}
- 	void show()
+ 	public void show()
  	{
  		fill(r,g,b);
  		noStroke();
  		ellipse(myX,myY,10,10);
  	}
  } 
- void mouseClicked()
+ public void mouseClicked()
  {
  	if (mouseButton == LEFT && mouseTrace == false)
  	{
@@ -109,3 +125,12 @@
  		mouseTrace = false;
  	}
  }   
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "chemotaxis" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
+}
