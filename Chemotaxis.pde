@@ -2,6 +2,7 @@
  Food [] snacks;
  boolean mouseTrace = false;
  boolean backgroundOn = true;
+ boolean jumper = false;
  void setup()   
  {     
  	//initialize bacteria variables here   
@@ -63,6 +64,13 @@
  	}
  	void move()
  	{
+ 		if (jumper == true)
+ 		{
+ 			myX = (int)(Math.random()*601);
+ 			myY = (int)(Math.random()*601);
+ 		}
+ 		else 
+ 		{
  		if (mouseTrace == true)
  		{
  			if (mouseX > myX) 
@@ -95,6 +103,7 @@
  			myX = myX + (int)(Math.random()*3)-1;
  			myY = myY + (int)(Math.random()*3)-1;
  		}
+ 		}
  	}
  	void show()
  	{
@@ -112,5 +121,13 @@
  	else if (mouseButton == LEFT && mouseTrace == true)
  	{
  		mouseTrace = false;
+ 	}
+ 	 	if (mouseButton == RIGHT && jumper == false)
+ 	{
+ 		jumper = true;
+ 	}
+ 	else if (mouseButton == RIGHT && jumper == true)
+ 	{
+ 		jumper = false;
  	}
  }   

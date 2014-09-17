@@ -18,6 +18,7 @@ public class chemotaxis extends PApplet {
  Food [] snacks;
  boolean mouseTrace = false;
  boolean backgroundOn = true;
+ boolean jumper = false;
  public void setup()   
  {     
  	//initialize bacteria variables here   
@@ -79,6 +80,13 @@ public class chemotaxis extends PApplet {
  	}
  	public void move()
  	{
+ 		if (jumper == true)
+ 		{
+ 			myX = (int)(Math.random()*601);
+ 			myY = (int)(Math.random()*601);
+ 		}
+ 		else 
+ 		{
  		if (mouseTrace == true)
  		{
  			if (mouseX > myX) 
@@ -111,6 +119,7 @@ public class chemotaxis extends PApplet {
  			myX = myX + (int)(Math.random()*3)-1;
  			myY = myY + (int)(Math.random()*3)-1;
  		}
+ 		}
  	}
  	public void show()
  	{
@@ -128,6 +137,14 @@ public class chemotaxis extends PApplet {
  	else if (mouseButton == LEFT && mouseTrace == true)
  	{
  		mouseTrace = false;
+ 	}
+ 	 	if (mouseButton == RIGHT && jumper == false)
+ 	{
+ 		jumper = true;
+ 	}
+ 	else if (mouseButton == RIGHT && jumper == true)
+ 	{
+ 		jumper = false;
  	}
  }   
   static public void main(String[] passedArgs) {
