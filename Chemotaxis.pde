@@ -1,12 +1,13 @@
  Bacteria [] colony;
  Food [] snacks;
  boolean mouseTrace = false;
+ boolean backgroundOn = true;
  void setup()   
  {     
  	//initialize bacteria variables here   
  	frameRate(30);
- 	size(300,300);
- 	background(255);
+ 	size(600,600);
+ 	background(0);
  	colony = new Bacteria[100];
  	for(int i=0; i<colony.length; i++)
  	{
@@ -16,7 +17,11 @@
  void draw()   
  {    
  	//move and show the bacteria 
- 	background(255);
+ 	if (backgroundOn == true)
+ 	{
+ 		fill(0,0,0,30);
+ 		rect(0,0,600,600);
+ 	}
  	for (int i=0; i<colony.length; i++)
  	{
  		colony[i].move();
@@ -50,8 +55,8 @@
  	int myX, myY, r, g, b;
  	Bacteria()
  	{
- 		myX = (int)(Math.random()*301);
- 		myY = (int)(Math.random()*301);
+ 		myX = (int)(Math.random()*601);
+ 		myY = (int)(Math.random()*601);
  		r = (int)(Math.random()*255);
  		g = (int)(Math.random()*255);
  		b = (int)(Math.random()*255);
