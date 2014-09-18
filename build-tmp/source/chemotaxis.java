@@ -22,7 +22,7 @@ public class chemotaxis extends PApplet {
  public void setup()   
  {     
  	//initialize bacteria variables here   
- 	frameRate(30);
+ 	frameRate(60);
  	size(600,600);
  	background(0);
  	colony = new Bacteria[100];
@@ -37,12 +37,28 @@ public class chemotaxis extends PApplet {
  	if (backgroundOn == true)
  	{
  		fill(0,0,0,30);
+ 		stroke(0);
  		rect(0,0,600,600);
  	}
  	for (int i=0; i<colony.length; i++)
  	{
  		colony[i].move();
  		colony[i].show();
+ 	}
+ 	if (mouseTrace == true)
+ 	{
+ 	stroke(255);
+ 	strokeWeight(1);
+	noFill();
+	ellipse(mouseX,mouseY,10,10);
+	ellipse(mouseX,mouseY,20,20);
+	fill(0);
+	line(mouseX-20,mouseY,mouseX+20,mouseY);
+	line(mouseX,mouseY-20,mouseX,mouseY+20);
+	line(0,mouseY,600,mouseY);
+	line(mouseX,0,mouseX,600);
+	fill(255);
+	text("MouseTrace Active", 5, 590);
  	}
  }  
  class Food
