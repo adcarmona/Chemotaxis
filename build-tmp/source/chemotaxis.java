@@ -60,6 +60,15 @@ public class chemotaxis extends PApplet {
 	fill(200);
 	text("MouseTrace ACTIVE", 5, 590);
  	}
+ 	if (jumper == true)
+ 	{
+ 	noFill();
+ 	strokeWeight(5);
+ 	stroke(255);
+ 	rect(0,0,599,599);
+ 	fill(200);
+ 	text("Shuffle ACTIVE", 5, 575);
+ 	}
  }  
  class Food
  {
