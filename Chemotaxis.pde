@@ -9,7 +9,7 @@
  	frameRate(60);
  	size(600,600);
  	background(0);
- 	colony = new Bacteria[100];
+ 	colony = new Bacteria[200];
  	for(int i=0; i<colony.length; i++)
  	{
  		colony[i] = new Bacteria();
@@ -31,7 +31,7 @@
  	}
  	if (mouseTrace == true)
  	{
- 	stroke(255);
+ 	stroke(200);
  	strokeWeight(1);
 	noFill();
 	ellipse(mouseX,mouseY,10,10);
@@ -41,8 +41,8 @@
 	line(mouseX,mouseY-20,mouseX,mouseY+20);
 	line(0,mouseY,600,mouseY);
 	line(mouseX,0,mouseX,600);
-	fill(255);
-	text("MouseTrace Active", 5, 590);
+	fill(200);
+	text("MouseTrace ACTIVE", 5, 590);
  	}
  }  
  class Food
@@ -123,9 +123,11 @@
  	}
  	void show()
  	{
- 		fill(r,g,b);
+ 		fill(r,g,b,25);
  		noStroke();
- 		ellipse(myX,myY,10,10);
+ 		ellipse(myX,myY,14,14);
+ 		fill(r,g,b);
+ 		ellipse(myX,myY,5,5);
  	}
  } 
  void mouseClicked()
